@@ -16,7 +16,7 @@ interface IPieChartsProps {
 const PieChartBox: React.FC<IPieChartsProps> = ({ data }) => (
     <Container>
         <SideLeft>
-            <h2>Relaçao</h2>
+            <h2>Relação</h2>
             <LegendContainer>
                 {
                     data.map((indicator) => (
