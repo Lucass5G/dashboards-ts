@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useCallback } from 'react'
 import grinningImg from '../../assets/grinning.svg'
 import happyImg from '../../assets/happy.svg'
 import sadImg from '../../assets/sad.svg'
@@ -288,14 +288,14 @@ const Dashboard: React.FC = () => {
     ];
   }, [monthSelected, yearSelected]);
 
-  const handleMonthSelected = (month: string) => {
+  const handleMonthSelected = useCallback((month: string) => {
     try {
       const parseMonth = Number(month)
       setMonthSelected(parseMonth)
     } catch {
       throw new Error('Invalid month value. Is accept 0 - 24.')
     }
-  }
+  }, [])
 
   const handleYearSelected = (year: string) => {
     try {

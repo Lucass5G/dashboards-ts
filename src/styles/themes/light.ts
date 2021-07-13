@@ -1,5 +1,6 @@
+// eslint-disable-next-line
 export default {
-    title: 'dark',
+    title: 'lightTheme',
 
     colors: {
         primary: '#dcdcdc',
