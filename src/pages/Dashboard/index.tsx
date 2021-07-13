@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react'
 import grinningImg from '../../assets/grinning.svg'
 import happyImg from '../../assets/happy.svg'
 import sadImg from '../../assets/sad.svg'
+import opsImg from '../../assets/ops.svg'
 
 import BarChartBox from '../../components/BarChartBox'
 import ContentHeader from '../../components/ContentHeader'
@@ -103,6 +104,13 @@ const Dashboard: React.FC = () => {
         description: "Sua carteira está negativa",
         footerText: "Neste mês, você gastou mais do que deveria"
       }
+    } else if (totalGains === 0 && totalExpenses === 0) {
+      return {
+        title: "Op's",
+        icon: opsImg,
+        description: "Nesse mês, não há registro de entradas ou saídas.",
+        footerText: "Parece que você não fez nenhum registro no mês e ano selecionado."
+      }
     } else if (totalBalance === 0) {
       return {
         title: "Uufa!",
@@ -119,25 +127,25 @@ const Dashboard: React.FC = () => {
       }
     }
 
-  }, [totalBalance])
+  }, [totalBalance, totalExpenses, totalGains])
 
   const relationExpensesVersusGains = useMemo(() => {
     const total = totalGains + totalExpenses
 
-    const percentGains = (totalGains / total) * 100
-    const percentExpenses = (totalExpenses / total) * 100
+    const percentGains = Number(((totalGains / total) * 100).toFixed(1))
+    const percentExpenses = Number(((totalExpenses / total) * 100).toFixed(1))
 
     const data = [
       {
         name: "Entradas",
         value: percentGains,
-        percent: Number(percentGains.toFixed(0)),
+        percent: percentGains ? percentGains : 0,
         color: '#F7931B'
       },
       {
         name: "Saídas",
         value: percentExpenses,
-        percent: Number(percentExpenses.toFixed(0)),
+        percent: percentExpenses ? percentExpenses : 0,
         color: '#EE4C4E'
       }
     ]

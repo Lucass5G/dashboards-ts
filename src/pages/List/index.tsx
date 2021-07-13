@@ -36,7 +36,7 @@ const List: React.FC<IRouteParams> = ({ match }) => {
 	const [data, setData] = useState<IData[]>([])
 	const [monthSelected, setMonthSelected] = useState<number>(new Date().getMonth() + 1)
 	const [yearSelected, setYearSelected] = useState<number>(new Date().getFullYear())
-	const [filterFrequencySelected, setfilterFrequencySelected] = useState(['recorrente', 'eventual'])
+	const [filterFrequencySelected, setFilterFrequencySelected] = useState(['recorrente', 'eventual'])
 
 	const movimentType = match.params.type
 
@@ -91,9 +91,9 @@ const List: React.FC<IRouteParams> = ({ match }) => {
 
 		if (alreadySelected >= 0) {
 			const filtered = filterFrequencySelected.filter(item => item !== frequency)
-			setfilterFrequencySelected(filtered)
+			setFilterFrequencySelected(filtered)
 		} else {
-			setfilterFrequencySelected((prev) => [...prev, frequency])
+			setFilterFrequencySelected((prev) => [...prev, frequency])
 		}
 	}
 
@@ -153,7 +153,7 @@ const List: React.FC<IRouteParams> = ({ match }) => {
 					onClick={() => handleFrequencyClick('recorrente')}
 				>
 					Recorrentes
-                </button>
+				</button>
 				<button
 					type="button"
 					className={`tag-filter tag-filter-eventual
@@ -161,7 +161,7 @@ const List: React.FC<IRouteParams> = ({ match }) => {
 					onClick={() => handleFrequencyClick('eventual')}
 				>
 					Eventuais
-                </button>
+				</button>
 			</Filters>
 
 			<Content>
