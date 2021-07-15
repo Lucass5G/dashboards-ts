@@ -36,7 +36,7 @@ export const Filters = styled.div`
           display: block;
           width: 70%;
           margin: 0 auto;
-          border-bottom: 10px solid ${({ theme }) => theme.colors.warning};;
+          border-bottom: 10px solid ${({ theme }) => theme.colors.warning};
       }
 
   .tag-filter-recurrent::after {
@@ -44,7 +44,7 @@ export const Filters = styled.div`
           display: block;
           width: 70%;
           margin: 0 auto;
-          border-bottom: 10px solid ${({ theme }) => theme.colors.success};;
+          border-bottom: 10px solid ${({ theme }) => theme.colors.success};
       }
 
    .tag-actived {
