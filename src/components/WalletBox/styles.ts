@@ -41,4 +41,28 @@ export const Container = styled.div<IContainerProps>`
     position: absolute;
     bottom: 10px;
   }
+
+  @media (max-width: 768px) {
+    > span {
+      font-size: 0.875rem;
+    }
+    > h1 {
+      word-wrap: break-word;
+      font-size: 1.375rem;
+
+      strong {
+        display: inline block;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    width: 100%;
+
+    > h1 strong {
+      display: inline;
+      font-size: 1.375rem;
+    }
+  }
 `;
